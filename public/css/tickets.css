@@ -1,0 +1,557 @@
+/*
+  O bilhete de rifa é a peça que dá identidade ao site.
+  Os recortes nas laterais são círculos da cor do fundo da página,
+  posicionados em cima da linha picotada que separa o canhoto.
+*/
+
+.hero__ticket,
+.ticket-card {
+  --notch-color: var(--color-canvas);
+  position: relative;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-ticket);
+  box-shadow: var(--shadow-ticket);
+}
+
+.hero__stub::before,
+.hero__stub::after,
+.ticket-card__stub::before,
+.ticket-card__stub::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--notch-size) * 2);
+  height: calc(var(--notch-size) * 2);
+  background-color: var(--notch-color);
+  border-radius: 50%;
+}
+
+/* Destaque da página inicial */
+
+.hero {
+  margin-bottom: var(--space-3xl);
+}
+
+.hero__ticket {
+  display: grid;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  min-height: 14rem;
+  object-fit: cover;
+}
+
+.hero__body {
+  display: grid;
+  align-content: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+}
+
+.hero__date {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-brand-strong);
+  font-weight: 700;
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.hero__description {
+  color: var(--color-ink-soft);
+  font-size: var(--text-md);
+}
+
+.hero__stub {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: stretch;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background-color: var(--color-ticket);
+  border-top: 3px dashed var(--color-ink);
+}
+
+.hero__stub::before {
+  top: calc(var(--notch-size) * -1);
+  left: calc(var(--notch-size) * -1);
+}
+
+.hero__stub::after {
+  top: calc(var(--notch-size) * -1);
+  right: calc(var(--notch-size) * -1);
+}
+
+.hero__price {
+  display: grid;
+  font-weight: 700;
+}
+
+.hero__price-value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1;
+}
+
+@media (min-width: 56rem) {
+  .hero__ticket {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) minmax(16rem, 3fr);
+  }
+
+  .hero__stub {
+    border-top: 0;
+    border-left: 3px dashed var(--color-ink);
+  }
+
+  .hero__stub::before {
+    top: calc(var(--notch-size) * -1);
+    left: calc(var(--notch-size) * -1);
+  }
+
+  .hero__stub::after {
+    top: auto;
+    right: auto;
+    bottom: calc(var(--notch-size) * -1);
+    left: calc(var(--notch-size) * -1);
+  }
+}
+
+/* Lista de rifas */
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: var(--space-xl) var(--space-lg);
+}
+
+.ticket-grid > li {
+  display: grid;
+}
+
+.ticket-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+.ticket-card:focus-within {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.ticket-card__image {
+  width: 100%;
+  aspect-ratio: 400 / 260;
+  object-fit: cover;
+}
+
+.ticket-card__body {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+}
+
+.ticket-card__title {
+  font-size: var(--text-lg);
+}
+
+.ticket-card__title a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.ticket-card__title a:focus-visible {
+  outline: none;
+}
+
+/* O link do título cobre o bilhete inteiro, então qualquer clique no card abre a rifa. */
+.ticket-card__title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.ticket-card:hover .ticket-card__title a {
+  color: var(--color-brand);
+}
+
+.ticket-card__prize {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  color: var(--color-ink-soft);
+}
+
+.ticket-card__stub {
+  position: relative;
+  display: grid;
+  gap: var(--space-2xs);
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  background-color: var(--color-ticket-soft);
+  border-top: 2px dashed #b9b3d6;
+}
+
+.ticket-card__stub::before {
+  top: calc(var(--notch-size) * -1);
+  left: calc(var(--notch-size) * -1);
+}
+
+.ticket-card__stub::after {
+  top: calc(var(--notch-size) * -1);
+  right: calc(var(--notch-size) * -1);
+}
+
+.ticket-card__price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.ticket-card__price span {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-ink-soft);
+}
+
+.ticket-card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+}
+
+.ticket-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  color: var(--color-brand);
+  font-weight: 700;
+}
+
+/* Barra de vendas */
+
+.sales {
+  display: grid;
+  gap: var(--space-2xs);
+  width: 100%;
+}
+
+.sales__label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  max-width: none;
+  font-size: var(--text-sm);
+}
+
+.sales__available {
+  color: var(--color-ink-soft);
+}
+
+.sales__bar {
+  width: 100%;
+  height: 0.75rem;
+  appearance: none;
+  background-color: var(--color-taken);
+  border: 0;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.sales__bar::-webkit-progress-bar {
+  background-color: var(--color-taken);
+}
+
+.sales__bar::-webkit-progress-value {
+  background-color: var(--color-brand);
+}
+
+.sales__bar::-moz-progress-bar {
+  background-color: var(--color-brand);
+}
+
+/* Busca */
+
+.search {
+  display: flex;
+  gap: var(--space-xs);
+  width: min(100%, 26rem);
+}
+
+.search__input {
+  flex: 1;
+}
+
+/* Página da rifa */
+
+.back-link {
+  margin-bottom: var(--space-lg);
+}
+
+.back-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 700;
+}
+
+.raffle {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.raffle__header {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 52rem) {
+  .raffle__header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.raffle__image {
+  width: 100%;
+  aspect-ratio: 400 / 260;
+  object-fit: cover;
+  border-radius: var(--radius-ticket);
+}
+
+.raffle__summary {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-md);
+}
+
+.raffle__prize {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  font-size: var(--text-md);
+}
+
+.raffle__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+.raffle__facts dt {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.raffle__facts dd {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+}
+
+.raffle__description {
+  font-size: var(--text-md);
+}
+
+/* Resultado do sorteio */
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  background-color: var(--color-ink);
+  color: var(--color-surface);
+  border-radius: var(--radius-ticket);
+}
+
+.result__icon {
+  color: var(--color-ticket);
+  font-size: 3rem;
+}
+
+.result__number {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-ticket);
+}
+
+/* Números da pessoa logada */
+
+.my-numbers {
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-brand-soft);
+  border-radius: var(--radius-ticket);
+}
+
+.my-numbers__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.my-numbers__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-sm);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-control);
+}
+
+.my-numbers__number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.my-numbers__note {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+/* Cartela de números */
+
+.cartela {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.cartela__fieldset {
+  display: grid;
+  gap: var(--space-md);
+  padding: 0;
+  border: 0;
+}
+
+.cartela__legend {
+  margin-bottom: var(--space-md);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.cartela__submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-ticket);
+}
+
+.cartela__note {
+  color: var(--color-ink-soft);
+}
+
+.number-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  font-size: var(--text-sm);
+}
+
+.number-key li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.number-key__sample {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.3rem;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(3.25rem, 1fr));
+  gap: var(--space-xs);
+  padding: 0;
+  list-style: none;
+}
+
+.number {
+  position: relative;
+}
+
+.number__label {
+  display: grid;
+  place-items: center;
+  min-height: 2.75rem;
+  border-radius: 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.number--free .number__label,
+.number-key__sample.number--free {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+}
+
+.number--taken .number__label,
+.number-key__sample.number--taken {
+  background-color: var(--color-taken);
+  border: 2px solid transparent;
+  color: #8a86a3;
+  text-decoration: line-through;
+}
+
+.number--mine .number__label,
+.number-key__sample.number--mine {
+  background-color: var(--color-brand);
+  border: 2px solid var(--color-brand);
+  color: var(--color-surface);
+}
+
+/* O radio continua no lugar, invisível, para o teclado e o leitor de tela. */
+.number__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.number__input:hover + .number__label {
+  border-color: var(--color-ink);
+}
+
+.number__input:focus-visible + .number__label {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.number__input:checked + .number__label {
+  background-color: var(--color-ticket);
+  border-color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+}

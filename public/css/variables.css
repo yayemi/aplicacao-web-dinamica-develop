@@ -1,0 +1,54 @@
+:root {
+  /* Cores */
+  --color-ink: #1f1a3d;
+  --color-ink-soft: #5e5a78;
+  --color-canvas: #f4f5fb;
+  --color-surface: #ffffff;
+  --color-border: #d9d7ea;
+  --color-brand: #5a2fc2;
+  --color-brand-strong: #44209a;
+  --color-brand-soft: #ece6fb;
+  --color-ticket: #ffd84d;
+  --color-ticket-soft: #fff4c7;
+  --color-success: #0f7a55;
+  --color-success-soft: #e2f5ec;
+  --color-danger: #b42338;
+  --color-danger-soft: #fde8eb;
+  --color-taken: #e7e5f0;
+  --color-focus: #ff9a1f;
+
+  /* Tipografia */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+  --text-hero: clamp(2.5rem, 1.6rem + 4vw, 4.25rem);
+
+  /* Espaçamento */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* Formas */
+  --radius-control: 0.5rem;
+  --radius-ticket: 1rem;
+  --radius-pill: 999px;
+  --notch-size: 0.875rem;
+  --shadow-ticket: 0 1px 0 var(--color-border), 0 12px 24px -16px rgb(31 26 61 / 0.35);
+
+  /* Layout */
+  --width-page: 72rem;
+  --width-text: 40rem;
+  --width-form: 32rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+}

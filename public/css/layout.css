@@ -1,0 +1,176 @@
+.container {
+  width: min(100% - 2 * var(--gutter), var(--width-page));
+  margin-inline: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1;
+  padding-block: var(--space-xl) var(--space-3xl);
+}
+
+.site-main:focus {
+  outline: none;
+}
+
+/* Cabeçalho */
+
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm) var(--space-lg);
+  padding-block: var(--space-sm);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--color-brand);
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: none;
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  font-weight: 700;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-lg);
+}
+
+.site-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-md);
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-2xs);
+  color: var(--color-ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.site-nav__link:hover {
+  color: var(--color-brand);
+}
+
+.site-nav__link[aria-current='page'] {
+  border-bottom-color: var(--color-ticket);
+}
+
+.site-nav__account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.site-nav__greeting {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-ink-soft);
+}
+
+/* No celular, com JavaScript ligado, o menu vira um botão. */
+@media (max-width: 47.99rem) {
+  .has-js .menu-toggle {
+    display: inline-flex;
+  }
+
+  .has-js .site-nav {
+    display: none;
+  }
+
+  .has-js .menu-toggle[aria-expanded='true'] + .site-nav {
+    display: flex;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding-block: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-nav__links {
+    flex-direction: column;
+  }
+}
+
+/* Cabeçalho de cada página */
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.page-header p {
+  margin-top: var(--space-xs);
+  color: var(--color-ink-soft);
+}
+
+.section + .section {
+  margin-top: var(--space-3xl);
+}
+
+.section__title {
+  margin-bottom: var(--space-lg);
+}
+
+/* Rodapé */
+
+.site-footer {
+  background-color: var(--color-ink);
+  color: #d8d5ec;
+  font-size: var(--text-sm);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-xs);
+  padding-block: var(--space-xl);
+}
+
+.site-footer strong {
+  color: var(--color-surface);
+}

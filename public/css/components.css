@@ -1,0 +1,228 @@
+/* Botões */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 2.75rem;
+  padding: var(--space-xs) var(--space-lg);
+  background-color: var(--color-brand);
+  color: var(--color-surface);
+  border: 2px solid var(--color-brand);
+  border-radius: var(--radius-control);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 120ms ease;
+}
+
+.button:hover {
+  background-color: var(--color-brand-strong);
+  border-color: var(--color-brand-strong);
+  color: var(--color-surface);
+}
+
+.button--small {
+  min-height: 2.25rem;
+  padding: var(--space-2xs) var(--space-md);
+  font-size: var(--text-sm);
+}
+
+.button--large {
+  min-height: 3.25rem;
+  padding-inline: var(--space-xl);
+  font-size: var(--text-md);
+}
+
+.button--ticket {
+  background-color: var(--color-ticket);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.button--ticket:hover {
+  background-color: #ffcc1a;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.button--ghost {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-ink);
+}
+
+.button--ghost:hover {
+  background-color: var(--color-brand-soft);
+  border-color: var(--color-brand);
+  color: var(--color-brand-strong);
+}
+
+.button--danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.button--danger:hover {
+  background-color: #8f1a2c;
+  border-color: #8f1a2c;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Avisos */
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-control);
+  border-left: 6px solid currentColor;
+}
+
+.notice i {
+  margin-top: 0.2em;
+}
+
+.notice--success {
+  background-color: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.notice--error {
+  background-color: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.notice p,
+.notice ul {
+  color: var(--color-ink);
+}
+
+.notice ul {
+  margin-top: var(--space-2xs);
+  padding-left: var(--space-lg);
+}
+
+/* Selos de situação */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: 0.125rem var(--space-sm);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge--open {
+  background-color: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.badge--closed {
+  background-color: var(--color-taken);
+  color: var(--color-ink-soft);
+}
+
+.badge--drawn {
+  background-color: var(--color-brand-soft);
+  color: var(--color-brand-strong);
+}
+
+.badge--reserved {
+  background-color: var(--color-ticket-soft);
+  color: #7a5b00;
+}
+
+.badge--paid {
+  background-color: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+/* Tabelas */
+
+.table-wrapper {
+  overflow-x: auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-ticket);
+}
+
+.table {
+  width: 100%;
+  min-width: 36rem;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.table thead th {
+  background-color: var(--color-brand-soft);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+}
+
+.table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.table__number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.ticket-result {
+  color: var(--color-ink-soft);
+}
+
+.ticket-result--won {
+  color: var(--color-success);
+}
+
+/* Estado vazio e página de erro */
+
+.empty-state,
+.error-page {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-md);
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+}
+
+.empty-state {
+  background-color: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-ticket);
+}
+
+.empty-state__icon,
+.error-page__icon {
+  color: var(--color-brand);
+  font-size: 2.5rem;
+}
+
+.error-page {
+  padding-block: var(--space-3xl);
+}
+
+.error-page__icon {
+  font-size: 3.5rem;
+}
